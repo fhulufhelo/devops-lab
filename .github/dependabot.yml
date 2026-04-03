@@ -1,0 +1,62 @@
+# Dependabot — automated dependency security updates
+version: 2
+
+updates:
+  # Go backend
+  - package-ecosystem: gomod
+    directory: /backend
+    schedule:
+      interval: weekly
+      day: monday
+    reviewers:
+      - fhulufhelo
+    labels:
+      - dependencies
+      - security
+    commit-message:
+      prefix: "deps(backend)"
+
+  # React frontend
+  - package-ecosystem: npm
+    directory: /frontend
+    schedule:
+      interval: weekly
+      day: monday
+    reviewers:
+      - fhulufhelo
+    labels:
+      - dependencies
+      - security
+    commit-message:
+      prefix: "deps(frontend)"
+
+  # GitHub Actions
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    reviewers:
+      - fhulufhelo
+    labels:
+      - dependencies
+      - ci
+    commit-message:
+      prefix: "deps(actions)"
+
+  # Docker base images
+  - package-ecosystem: docker
+    directory: /backend
+    schedule:
+      interval: weekly
+    labels:
+      - dependencies
+      - docker
+
+  - package-ecosystem: docker
+    directory: /frontend
+    schedule:
+      interval: weekly
+    labels:
+      - dependencies
+      - docker

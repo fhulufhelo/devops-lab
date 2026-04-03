@@ -25,7 +25,7 @@ func main() {
 	mux.HandleFunc("PUT /api/tasks/{id}", srv.handleUpdateTask)
 	mux.HandleFunc("DELETE /api/tasks/{id}", srv.handleDeleteTask)
 
-	handler := requestIDMiddleware(loggingMiddleware(corsMiddleware(mux)))
+	handler := rateLimitMiddleware(requestIDMiddleware(loggingMiddleware(corsMiddleware(mux))))
 
 	slog.Info("server starting", "port", 8080)
 	if err := http.ListenAndServe(":8080", handler); err != nil {
