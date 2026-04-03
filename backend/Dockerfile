@@ -12,7 +12,7 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o server .
 
 # ---- Stage 2: Run ----
-FROM alpine:3.21
+FROM alpine:3.23
 
 # Add ca-certificates for HTTPS calls and a non-root user for security
 RUN apk --no-cache add ca-certificates && \
