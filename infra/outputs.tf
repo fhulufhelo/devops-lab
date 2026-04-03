@@ -38,3 +38,8 @@ output "app_insights_name" {
   description = "Application Insights resource name"
   value       = azurerm_application_insights.main.name
 }
+
+output "database_host" {
+  description = "PostgreSQL server hostname"
+  value       = azurerm_postgresql_flexible_server.main.fqdn
+}

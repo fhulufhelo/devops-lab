@@ -9,7 +9,7 @@ import (
 )
 
 func setupTestServer() (*Server, *http.ServeMux) {
-	store := NewTaskStore()
+	store := NewMemoryStore()
 	srv := NewServer(store)
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /api/health", srv.handleHealthCheck)

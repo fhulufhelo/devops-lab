@@ -40,6 +40,11 @@ resource "azurerm_container_app" "backend" {
         name  = "PORT"
         value = "8080"
       }
+
+      env {
+        name        = "DATABASE_URL"
+        secret_name = "database-url"
+      }
     }
   }
 
@@ -62,6 +67,11 @@ resource "azurerm_container_app" "backend" {
   secret {
     name  = "acr-password"
     value = azurerm_container_registry.main.admin_password
+  }
+
+  secret {
+    name  = "database-url"
+    value = "postgres://devopsadmin:${var.db_password}@${azurerm_postgresql_flexible_server.main.fqdn}:5432/devopslab?sslmode=require"
   }
 
   tags = var.tags

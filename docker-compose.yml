@@ -1,4 +1,16 @@
 services:
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: devopslab
+      POSTGRES_USER: devopsadmin
+      POSTGRES_PASSWORD: localdev123
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
   backend:
     build:
       context: ./backend
@@ -7,6 +19,9 @@ services:
       - "8080:8080"
     environment:
       - PORT=8080
+      - DATABASE_URL=postgres://devopsadmin:localdev123@postgres:5432/devopslab?sslmode=disable
+    depends_on:
+      - postgres
     restart: unless-stopped
 
   frontend:
@@ -20,3 +35,6 @@ services:
     depends_on:
       - backend
     restart: unless-stopped
+
+volumes:
+  pgdata:

@@ -43,3 +43,9 @@ variable "alert_email" {
   type        = string
   default     = ""
 }
+
+variable "db_password" {
+  description = "PostgreSQL administrator password"
+  type        = string
+  sensitive   = true
+}
