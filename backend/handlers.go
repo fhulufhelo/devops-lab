@@ -14,7 +14,19 @@ func NewServer(store *TaskStore) *Server {
 }
 
 func (s *Server) handleHealthCheck(w http.ResponseWriter, r *http.Request) {
-	writeJSON(w, http.StatusOK, map[string]string{"status": "ok"})
+	writeJSON(w, http.StatusOK, map[string]string{
+		"status":  "ok",
+		"service": "devops-lab-backend",
+	})
+}
+
+// readiness check — separate from liveness so k8s/Container Apps
+// can distinguish "not ready yet" from "crashed"
+func (s *Server) handleReadyCheck(w http.ResponseWriter, r *http.Request) {
+	writeJSON(w, http.StatusOK, map[string]string{
+		"status": "ready",
+		"store":  "in-memory",
+	})
 }
 
 func (s *Server) handleListTasks(w http.ResponseWriter, r *http.Request) {
