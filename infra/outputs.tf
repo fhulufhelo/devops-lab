@@ -27,3 +27,14 @@ output "container_app_environment_id" {
   description = "Container Apps Environment ID"
   value       = azurerm_container_app_environment.main.id
 }
+
+output "app_insights_connection_string" {
+  description = "Application Insights connection string"
+  value       = azurerm_application_insights.main.connection_string
+  sensitive   = true
+}
+
+output "app_insights_name" {
+  description = "Application Insights resource name"
+  value       = azurerm_application_insights.main.name
+}
