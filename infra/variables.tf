@@ -28,5 +28,18 @@ variable "tags" {
     project     = "devops-lab"
     environment = "dev"
     managed_by  = "terraform"
+    team        = "platform"
   }
+}
+
+variable "monthly_budget" {
+  description = "Monthly budget in USD for cost alerts"
+  type        = number
+  default     = 50
+}
+
+variable "alert_email" {
+  description = "Email address for budget alerts"
+  type        = string
+  default     = ""
 }
