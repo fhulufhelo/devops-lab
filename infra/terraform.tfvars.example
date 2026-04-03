@@ -11,3 +11,4 @@ tags = {
   environment = "dev"
   managed_by  = "terraform"
 }
+db_password = "YourStrongPassword123!"

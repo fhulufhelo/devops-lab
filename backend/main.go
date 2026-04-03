@@ -13,7 +13,23 @@ func main() {
 	}))
 	slog.SetDefault(logger)
 
-	store := NewTaskStore()
+	// Choose store: PostgreSQL if DATABASE_URL is set, otherwise in-memory
+	var store Store
+	if dbURL := os.Getenv("DATABASE_URL"); dbURL != "" {
+		slog.Info("connecting to PostgreSQL...")
+		pgStore, err := NewPostgresStore(dbURL)
+		if err != nil {
+			slog.Error("failed to connect to database", "error", err)
+			os.Exit(1)
+		}
+		defer pgStore.Close()
+		store = pgStore
+		slog.Info("connected to PostgreSQL")
+	} else {
+		slog.Info("using in-memory store (set DATABASE_URL for PostgreSQL)")
+		store = NewMemoryStore()
+	}
+
 	srv := NewServer(store)
 
 	mux := http.NewServeMux()
