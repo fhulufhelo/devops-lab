@@ -1,0 +1,13 @@
+# Copy this file to terraform.tfvars and fill in your values
+# NEVER commit terraform.tfvars to git (it's in .gitignore)
+
+subscription_id = "your-azure-subscription-id"
+project         = "devopslab"
+environment     = "dev"
+location        = "eastus"
+
+tags = {
+  project     = "devops-lab"
+  environment = "dev"
+  managed_by  = "terraform"
+}
