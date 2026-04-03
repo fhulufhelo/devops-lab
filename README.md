@@ -2,6 +2,7 @@
 
 ![CI](https://github.com/fhulufhelo/devops-lab/actions/workflows/ci.yml/badge.svg)
 ![CD](https://github.com/fhulufhelo/devops-lab/actions/workflows/cd.yml/badge.svg)
+![Security](https://github.com/fhulufhelo/devops-lab/actions/workflows/security.yml/badge.svg)
 
 A full-stack task tracker application built to learn DevOps practices hands-on.
 
@@ -15,6 +16,8 @@ A full-stack task tracker application built to learn DevOps practices hands-on.
 | Infrastructure | Terraform |
 | Cloud | Microsoft Azure |
 | Containers | Docker |
+| Monitoring | Azure Application Insights |
+| Security | Trivy, CodeQL, Dependabot |
 
 ## Project Structure
 
@@ -62,7 +65,15 @@ This project progressively layers in DevOps practices:
 5. ✅ CD pipeline to Azure
 6. ✅ Monitoring & observability
 7. ✅ Security hardening
-8. 🔲 Advanced topics & interview prep
+8. ✅ Advanced topics & interview prep
+
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Architecture](docs/architecture.md) | System diagram, request flow, CI/CD flow, IaC overview |
+| [Runbook](docs/runbook.md) | Incident response procedures for common issues |
+| [Interview Prep](docs/interview-prep.md) | STAR stories, key decisions, follow-up answers for every topic |
 
 ## License
 
