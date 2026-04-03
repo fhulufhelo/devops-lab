@@ -60,8 +60,8 @@ This project progressively layers in DevOps practices:
 3. ✅ CI pipeline (GitHub Actions)
 4. ✅ Infrastructure as Code (Terraform)
 5. ✅ CD pipeline to Azure
-6. 🔲 Monitoring & observability
-7. 🔲 Security hardening
+6. ✅ Monitoring & observability
+7. ✅ Security hardening
 8. 🔲 Advanced topics & interview prep
 
 ## License
