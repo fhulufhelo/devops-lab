@@ -1,5 +1,7 @@
 # DevOps Lab 🚀
 
+![CI](https://github.com/fhulufhelo/devops-lab/actions/workflows/ci.yml/badge.svg)
+
 A full-stack task tracker application built to learn DevOps practices hands-on.
 
 ## Tech Stack
@@ -53,8 +55,8 @@ npm run dev
 This project progressively layers in DevOps practices:
 
 1. ✅ Project scaffolding & Git workflow
-2. 🔲 Docker containerization
-3. 🔲 CI pipeline (GitHub Actions)
+2. ✅ Docker containerization
+3. ✅ CI pipeline (GitHub Actions)
 4. 🔲 Infrastructure as Code (Terraform)
 5. 🔲 CD pipeline to Azure
 6. 🔲 Monitoring & observability
