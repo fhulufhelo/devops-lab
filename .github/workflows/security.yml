@@ -21,7 +21,7 @@ jobs:
     name: Trivy — Backend
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Build backend image
         run: docker build -t devops-lab-backend:scan ./backend
@@ -46,7 +46,7 @@ jobs:
     name: Trivy — Frontend
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Build frontend image
         run: docker build -t devops-lab-frontend:scan ./frontend
@@ -78,7 +78,7 @@ jobs:
         language: [go, javascript-typescript]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
