@@ -1,6 +1,8 @@
 import type { Task } from './types';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+// In production, use relative URLs so nginx proxies /api/* to the backend.
+// For local dev without Docker, set VITE_API_URL=http://localhost:8080
+const API_BASE = import.meta.env.VITE_API_URL || '';
 
 export async function getTasks(): Promise<Task[]> {
   const res = await fetch(`${API_BASE}/api/tasks`);
